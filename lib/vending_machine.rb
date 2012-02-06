@@ -7,7 +7,7 @@ class VendingMachine
   DRINK_PRICE = 2
 
   def initialize
-  	self.tray = []
+    self.tray = []
     self.inserted = 0
     super
   end
