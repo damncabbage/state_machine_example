@@ -5,7 +5,8 @@ class VendingMachine
   attr_accessor :tray
 
   def initialize
-  	self.tray = []
+    self.tray = []
+    self.inserted = 0
     super
   end
 
