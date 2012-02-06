@@ -16,6 +16,7 @@ class VendingMachine
     state :idle
     state :accepting_money
     state :awaiting_selection
+    state :broken
 
     event :insert_dollar do
       transition [:idle, :accepting_money] => :awaiting_selection, :if => :paid?
@@ -29,6 +30,16 @@ class VendingMachine
     before_transition :awaiting_selection => :idle do |m,transition|
       m.accept_money
       m.vend(*transition.args)
+    end
+
+    event :crowbar do
+      transition any => :broken
+    end
+
+    after_transition :to => :broken do |m,transition|
+      rand(30).times do
+        m.vend([:cola, :lemonade, :orange].sample)
+      end
     end
   end
 
