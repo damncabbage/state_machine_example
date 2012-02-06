@@ -6,3 +6,4 @@ gem 'ruby-graphviz'
 gem 'rspec'
 
 gem 'awesome_print'
+gem 'pry'
