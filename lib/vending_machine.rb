@@ -19,7 +19,7 @@ class VendingMachine
 
     event :insert_dollar do
       transition [:idle, :accepting_money] => :awaiting_selection, :if => :paid?
-      transition :idle => :accepting_money
+      transition [:idle, :accepting_money] => :accepting_money
     end
 
     event :push_button do
