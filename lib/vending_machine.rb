@@ -33,7 +33,7 @@ class VendingMachine
     end
 
     event :crowbar do
-      transition any => :broken
+      transition any - :broken => :broken
     end
 
     after_transition :to => :broken do |m,transition|
